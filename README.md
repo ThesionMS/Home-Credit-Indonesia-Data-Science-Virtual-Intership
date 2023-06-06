@@ -2,7 +2,7 @@
 
 ## Problem Researsch
 
-- Home Credit saat ini sedang menggunakan berbagai macam metode statistik dan Machine Learning untuk membuat prediksi skor kredit. Sekarang, kami meminta anda untuk membuka potensi maksimal dari data kami. Dengan melakukannya, kita dapat memastikan pelanggan yang mampu melakukan pelunasan tidak ditolak ketika melakukan pengajuan pinjaman, dan pinjaman datap diberikan dengan principal, maturity, dan repayment calendar yang akan memotivsi pelanggan untuk sukses.
+- Home Credit saat ini sedang menerapkan berbagai metode statistik dan Machine Learning untuk mengoptimalkan prediksi skor kredit. Tujuan utamanya adalah memastikan bahwa pelanggan yang mampu melunasi pinjaman tidak ditolak saat mengajukan pinjaman, sementara pinjaman yang diberikan disesuaikan dengan jumlah utama (principal), jangka waktu pelunasan (maturity), dan jadwal pembayaran (repayment calendar) yang dapat memotivasi pelanggan untuk mencapai keberhasilan keuangan.
 - Dataset yang digunakan adalah application_train.csv
 - Dua Model Machine Learning yang digunakan adalah Logistic Regression, XGBoost Classifier.
 
