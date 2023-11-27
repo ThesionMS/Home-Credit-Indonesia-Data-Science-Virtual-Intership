@@ -24,17 +24,43 @@ app_train=pd.read_csv("application_train.csv")
 - Melakukan pemeriksaan missing value dan menghapus variabel yang memiliki missing value.
 ![[Pasted image 20231127162258.png]]
 Berdasarkan hasil diatas dapat dilihat bahwa terdapat missing value pada data training dan testing. Missing value ditangani dengan cara drop variable.
-![[Pasted image 20231127162400.png]]
+```Python
+train_pakai = app_train_pakai.dropna()
+test_pakai = app_test_pakai.dropna()
+```
 - Memeriksa adanya data duplikat dan tidak menemukan duplikat.
 ![[Pasted image 20231127162140.png]]
 - Mengecek ejaan kata dan menemukan kesalahan pada kolom CODE_GENDER dan NAME_INCOME_TYPE, yang kemudian dihapus.
-![[Pasted image 20231127162455.png]]
+```Python
+train_pakai.drop(train_pakai.index[train_pakai['CODE_GENDER']=='XNA'],inplace=True)
+train_pakai.drop(train_pakai.index[train_pakai['NAME_INCOME_TYPE']=='Maternity leave'],inplace=True)
+```
 - Melakukan feature engineering dengan menambahkan kolom AGE yang berisi umur klien dalam tahun (dalam format integer).
-![[Pasted image 20231127162601.png]]
+```Python
+AGE_TR=(train_pakai['DAYS_BIRTH']/-365).astype(int)
+AGE_TS=(test_pakai['DAYS_BIRTH']/-365).astype(int)
+```
 - Mengubah data kategorikal menjadi biner.
-![[Pasted image 20231127162624.png]]
+```Python
+l = LabelEncoder()
+for q in test_pakai.describe(include='object').columns:
+    test_pakai[q]=l.fit_transform(test_pakai[q])
+app_test.head(3)
+```
 - Membagi dataset menjadi 70% data training dan 30% data testing.
-![[Pasted image 20231127162705.png]]
+```Python
+# Pembagian data latih dan data uji
+from sklearn.model_selection import train_test_split
+
+X = train_pakai.drop(columns = ['TARGET'])
+y = train_pakai['TARGET']
+
+# split dataset into training set and test set
+X_train, X_test, y_train, y_test = train_test_split(X,
+                                                    y,
+                                                    test_size=0.3, # 70% training and 30% test
+                                                    random_state=109)
+```
 - Melakukan oversampling (SMOTE) untuk menyeimbangkan data.
 ![[Pasted image 20231127162736.png]]
 DIketahuibahwa data tidak seimbang sehingga dilakukan SMOTE
@@ -42,7 +68,7 @@ DIketahuibahwa data tidak seimbang sehingga dilakukan SMOTE
 
 ## Data Visualization and Business Insight
 
-![[Pasted image 20231127163252.png]]
+![Gambar1](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Picture1.png)
 
 Mayoritas klien (197.056) berhasil membayar pinjaman tepat waktu, sedangkan 98.528 klien mengalami kesulitan dalam pembayaran. Selain itu, jumlah klien perempuan dalam dataset ini lebih banyak daripada klien laki-laki, dan klien perempuan juga memiliki tingkat keberhasilan yang lebih tinggi dalam melunasi pinjaman tepat waktu dibandingkan klien laki-laki.
 
