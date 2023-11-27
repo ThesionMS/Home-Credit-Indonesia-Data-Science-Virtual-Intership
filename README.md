@@ -18,18 +18,20 @@ app_test=pd.read_csv("application_test.csv")
 app_train=pd.read_csv("application_train.csv")
 `````
 
-![[Pasted image 20231127162104.png]]
+![Gambar5](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Gambar%204.jpg)
 ## Data Pre-Processing
 
 - Melakukan pemeriksaan missing value dan menghapus variabel yang memiliki missing value.
-![[Pasted image 20231127162258.png]]
+![Gambar6]https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Gambar5.jpg
+
 Berdasarkan hasil diatas dapat dilihat bahwa terdapat missing value pada data training dan testing. Missing value ditangani dengan cara drop variable.
 ```Python
 train_pakai = app_train_pakai.dropna()
 test_pakai = app_test_pakai.dropna()
 ```
 - Memeriksa adanya data duplikat dan tidak menemukan duplikat.
-![[Pasted image 20231127162140.png]]
+![Gambar8](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Gambar6.jpg)
+
 - Mengecek ejaan kata dan menemukan kesalahan pada kolom CODE_GENDER dan NAME_INCOME_TYPE, yang kemudian dihapus.
 ```Python
 train_pakai.drop(train_pakai.index[train_pakai['CODE_GENDER']=='XNA'],inplace=True)
@@ -62,9 +64,10 @@ X_train, X_test, y_train, y_test = train_test_split(X,
                                                     random_state=109)
 ```
 - Melakukan oversampling (SMOTE) untuk menyeimbangkan data.
-![[Pasted image 20231127162736.png]]
+![Gambar8](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Gambar7.jpg)
+
 DIketahuibahwa data tidak seimbang sehingga dilakukan SMOTE
-![[Pasted image 20231127162823.png]]
+![Gambar9](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Gambar8.jpg)
 
 ## Data Visualization and Business Insight
 
@@ -72,13 +75,13 @@ DIketahuibahwa data tidak seimbang sehingga dilakukan SMOTE
 
 Mayoritas klien (197.056) berhasil membayar pinjaman tepat waktu, sedangkan 98.528 klien mengalami kesulitan dalam pembayaran. Selain itu, jumlah klien perempuan dalam dataset ini lebih banyak daripada klien laki-laki, dan klien perempuan juga memiliki tingkat keberhasilan yang lebih tinggi dalam melunasi pinjaman tepat waktu dibandingkan klien laki-laki.
 
-![[Pasted image 20231127163359.png]]
+![Gambar2](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Picture2.png)
 
 Informasi yang bisa diterapkan oleh bank adalah bahwa klien yang lebih muda memiliki kecenderungan yang lebih tinggi untuk gagal membayar pinjaman. Tingkat kegagalan pembayaran melebihi 10% untuk kelompok usia termuda, sementara di bawah 5% untuk kelompok usia tertua.
 
 Berdasarkan informasi ini, bank dapat mengambil langkah-langkah pencegahan dengan memberikan panduan atau tips perencanaan keuangan kepada nasabah yang lebih muda. Tujuannya bukan untuk mendiskriminasi nasabah yang lebih muda, tetapi untuk membantu mereka membayar tepat waktu dengan memberikan saran dan dukungan tambahan.
 
-![[Pasted image 20231127163609.png]]
+![Gambar3](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Gambar9.jpg)
 
 - Lebih banyak clients dengan jenis kelamin perempuan dan tanpa banyak anak
 - Lebih banyak clients yang memiliki realty tetapi tidak memiliki mobil
@@ -88,7 +91,7 @@ Ada 2 Model Machine Learning menggunakan hyperparameter tuning
 1. Logistic Regression
 2. XGBoost Classifier 
 
-![[Pasted image 20231127163812.png]]
+![Gambar4](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Picture3.png)
 Setelah menganalisis data Home Credit, ditemukan bahwa model terbaik yang digunakan adalah XGBoost Classifier. Model ini memiliki tingkat akurasi sebesar 0.917690.
 ## Business Recommendation
 - Home Credit Indonesia perlu memberikan perhatian khusus kepada pelanggan yang memenuhi kriteria berikut: memilih pinjaman tunai, memiliki pekerjaan, sudah menikah, dan memiliki rumah atau apartemen. Kelompok pelanggan ini memiliki persentase tertinggi yang tidak mengalami kesulitan dalam pembayaran. Untuk memberikan perhatian khusus, beberapa saran yang dapat dipertimbangkan adalah memberikan kelonggaran dalam jangka waktu pembayaran, mengurangi jumlah angsuran yang harus dibayarkan, atau meningkatkan batas pinjaman yang dapat mereka akses.
