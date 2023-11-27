@@ -1,5 +1,5 @@
-
-# Data Understanding
+# Home Credit Indonesia Data Science Virtual Intership
+## Data Understanding
 ## Latar Belakang
 
 - Home Credit saat ini sedang menerapkan berbagai metode statistik dan Machine Learning untuk mengoptimalkan prediksi skor kredit. Tujuan utamanya adalah memastikan bahwa pelanggan yang mampu melunasi pinjaman tidak ditolak saat mengajukan pinjaman, sementara pinjaman yang diberikan disesuaikan dengan jumlah utama (principal), jangka waktu pelunasan (maturity), dan jadwal pembayaran (repayment calendar) yang dapat memotivasi pelanggan untuk mencapai keberhasilan keuangan.
@@ -19,6 +19,7 @@ app_train=pd.read_csv("application_train.csv")
 `````
 
 ![Gambar5](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Gambar%204.jpg)
+
 ## Data Pre-Processing
 
 - Melakukan pemeriksaan missing value dan menghapus variabel yang memiliki missing value.
@@ -30,6 +31,7 @@ train_pakai = app_train_pakai.dropna()
 test_pakai = app_test_pakai.dropna()
 ```
 - Memeriksa adanya data duplikat dan tidak menemukan duplikat.
+- 
 ![Gambar8](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Gambar6.jpg)
 
 - Mengecek ejaan kata dan menemukan kesalahan pada kolom CODE_GENDER dan NAME_INCOME_TYPE, yang kemudian dihapus.
@@ -64,9 +66,11 @@ X_train, X_test, y_train, y_test = train_test_split(X,
                                                     random_state=109)
 ```
 - Melakukan oversampling (SMOTE) untuk menyeimbangkan data.
+- 
 ![Gambar8](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Gambar7.jpg)
 
 DIketahuibahwa data tidak seimbang sehingga dilakukan SMOTE
+
 ![Gambar9](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Gambar8.jpg)
 
 ## Data Visualization and Business Insight
@@ -92,6 +96,7 @@ Ada 2 Model Machine Learning menggunakan hyperparameter tuning
 2. XGBoost Classifier 
 
 ![Gambar4](https://github.com/ThesionMS/Home-Credit-Indonesia-Data-Science-Virtual-Intership/blob/main/gambar/Picture3.png)
+
 Setelah menganalisis data Home Credit, ditemukan bahwa model terbaik yang digunakan adalah XGBoost Classifier. Model ini memiliki tingkat akurasi sebesar 0.917690.
 ## Business Recommendation
 - Home Credit Indonesia perlu memberikan perhatian khusus kepada pelanggan yang memenuhi kriteria berikut: memilih pinjaman tunai, memiliki pekerjaan, sudah menikah, dan memiliki rumah atau apartemen. Kelompok pelanggan ini memiliki persentase tertinggi yang tidak mengalami kesulitan dalam pembayaran. Untuk memberikan perhatian khusus, beberapa saran yang dapat dipertimbangkan adalah memberikan kelonggaran dalam jangka waktu pembayaran, mengurangi jumlah angsuran yang harus dibayarkan, atau meningkatkan batas pinjaman yang dapat mereka akses.
